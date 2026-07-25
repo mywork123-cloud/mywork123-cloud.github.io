@@ -12,16 +12,16 @@
 <link rel="icon" type="image/png" href="icon-192.png"/>
 <style>
 :root {
-  --primary: #2D6A4F;
-  --primary-light: #40916C;
-  --primary-dark: #1B4332;
-  --accent: #E76F51;
-  --accent-light: #F4A261;
-  --bg: #F8F9FA;
+  --primary: #FFC83C;
+  --primary-light: #FFE08A;
+  --primary-dark: #F5A623;
+  --accent: #FF8C42;
+  --accent-light: #FFB370;
+  --bg: #FFF9F0;
   --surface: #FFFFFF;
-  --divider: #EDF2F4;
-  --text-primary: #212529;
-  --text-secondary: #6C757D;
+  --divider: #FFF0D4;
+  --text-primary: #4A3C28;
+  --text-secondary: #9C8B6F;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 html, body {
@@ -38,7 +38,7 @@ html, body {
 
 /* 顶部导航 */
 .header {
-  background: var(--primary);
+  background: linear-gradient(135deg, #FFC83C, #FF8C42);
   color: white;
   padding: 16px 20px;
   display: flex;
@@ -53,7 +53,7 @@ html, body {
 
 /* 统计条 */
 .stat-strip {
-  background: var(--primary);
+  background: linear-gradient(135deg, #FFC83C, #FF8C42);
   color: white;
   padding: 0 20px 20px;
   display: flex;
@@ -61,7 +61,7 @@ html, body {
 }
 .stat-item { text-align: center; }
 .stat-item .value { font-size: 22px; font-weight: 700; }
-.stat-item .label { font-size: 11px; opacity: 0.8; margin-top: 2px; }
+.stat-item .label { font-size: 11px; opacity: 0.85; margin-top: 2px; }
 
 /* 内容区 */
 .content { flex: 1; padding: 16px; padding-bottom: 80px; }
@@ -76,8 +76,8 @@ html, body {
 .section-header h2 { font-size: 16px; font-weight: 700; }
 .add-btn {
   background: none;
-  border: 1px solid var(--primary);
-  color: var(--primary);
+  border: 1px solid var(--primary-dark);
+  color: var(--primary-dark);
   padding: 4px 12px;
   border-radius: 16px;
   font-size: 13px;
@@ -93,7 +93,7 @@ html, body {
   margin-bottom: 8px;
   display: flex;
   align-items: center;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  box-shadow: 0 1px 3px rgba(255, 200, 60, 0.1);
 }
 .task-card .checkbox {
   width: 22px;
@@ -128,7 +128,7 @@ html, body {
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 12px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  box-shadow: 0 1px 3px rgba(255, 200, 60, 0.1);
 }
 .idea-card .idea-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
 .idea-card .hook {
@@ -143,7 +143,7 @@ html, body {
 .idea-card .tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .tag {
   background: var(--divider);
-  color: var(--text-secondary);
+  color: var(--primary-dark);
   padding: 3px 10px;
   border-radius: 12px;
   font-size: 11px;
@@ -167,7 +167,7 @@ html, body {
   margin-bottom: 12px;
   display: flex;
   align-items: flex-start;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  box-shadow: 0 1px 3px rgba(255, 200, 60, 0.1);
 }
 .trend-rank {
   width: 28px;
@@ -195,7 +195,7 @@ html, body {
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 12px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  box-shadow: 0 1px 3px rgba(255, 200, 60, 0.1);
 }
 .review-title { font-size: 16px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
 .review-metrics { display: flex; justify-content: space-around; margin-bottom: 12px; }
@@ -203,8 +203,8 @@ html, body {
 .metric .val { font-size: 14px; font-weight: 700; }
 .metric .lbl { font-size: 11px; color: var(--text-secondary); }
 .review-suggestion {
-  background: rgba(231, 111, 81, 0.08);
-  border: 1px solid rgba(231, 111, 81, 0.2);
+  background: rgba(255, 140, 66, 0.08);
+  border: 1px solid rgba(255, 140, 66, 0.2);
   border-radius: 8px;
   padding: 12px;
   font-size: 13px;
@@ -217,7 +217,7 @@ html, body {
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 12px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  box-shadow: 0 1px 3px rgba(255, 200, 60, 0.1);
 }
 .note-title { font-weight: 600; font-size: 15px; margin-bottom: 6px; }
 .note-body { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
@@ -260,7 +260,7 @@ html, body {
   color: var(--text-secondary);
   font-size: 10px;
 }
-.nav-item.active { color: var(--primary); }
+.nav-item.active { color: var(--primary-dark); }
 .nav-item .icon { font-size: 22px; }
 
 /* 浮动按钮 */
@@ -271,12 +271,12 @@ html, body {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: var(--accent);
+  background: linear-gradient(135deg, #FFC83C, #FF8C42);
   color: white;
   border: none;
   font-size: 28px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(231, 111, 81, 0.4);
+  box-shadow: 0 4px 12px rgba(255, 140, 66, 0.4);
   z-index: 90;
   display: flex;
   align-items: center;
@@ -305,12 +305,12 @@ html, body {
 }
 .drawer.open { transform: translateX(0); }
 .drawer-header {
-  background: var(--primary);
+  background: linear-gradient(135deg, #FFC83C, #FF8C42);
   color: white;
   padding: 24px 20px;
 }
 .drawer-header h2 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
-.drawer-header p { font-size: 13px; opacity: 0.8; }
+.drawer-header p { font-size: 13px; opacity: 0.85; }
 .drawer-item {
   display: flex;
   align-items: center;
@@ -320,9 +320,9 @@ html, body {
   font-size: 15px;
   gap: 12px;
 }
-.drawer-item.active { background: rgba(45, 106, 79, 0.08); color: var(--primary); font-weight: 600; }
+.drawer-item.active { background: rgba(255, 200, 60, 0.15); color: var(--primary-dark); font-weight: 600; }
 .drawer-item .icon { font-size: 20px; color: var(--text-secondary); }
-.drawer-item.active .icon { color: var(--primary); }
+.drawer-item.active .icon { color: var(--primary-dark); }
 .drawer-divider { height: 1px; background: var(--divider); margin: 8px 0; }
 .drawer-date { padding: 16px 20px; font-size: 12px; color: var(--text-secondary); }
 
@@ -376,7 +376,7 @@ html, body {
   bottom: 100px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(33, 37, 41, 0.9);
+  background: rgba(74, 60, 40, 0.9);
   color: white;
   padding: 10px 24px;
   border-radius: 24px;
@@ -394,47 +394,31 @@ html, body {
 </head>
 <body>
 <div class="app">
-  <!-- 顶部导航 -->
   <div class="header">
     <button class="menu-btn" onclick="toggleDrawer()">☰</button>
-    <h1>创作者工作台</h1>
+    <h1>工作台</h1>
     <div style="width:36px"></div>
   </div>
-
-  <!-- 页面容器 -->
   <div id="page-container"></div>
-
-  <!-- 浮动按钮 -->
   <button class="fab" id="fab" onclick="onFabClick()" style="display:none">+</button>
-
-  <!-- 底部导航 -->
   <div class="bottom-nav" id="bottom-nav"></div>
 </div>
-
-<!-- 抽屉 -->
 <div class="drawer-overlay" id="drawer-overlay" onclick="toggleDrawer()"></div>
 <div class="drawer" id="drawer">
   <div class="drawer-header">
-    <h2>创作者工作台</h2>
+    <h2>工作台</h2>
     <p>完成一项打勾，进度一目了然</p>
   </div>
   <div id="drawer-items"></div>
   <div class="drawer-divider"></div>
   <div class="drawer-date" id="drawer-date"></div>
 </div>
-
-<!-- 弹窗 -->
 <div class="modal-overlay" id="modal-overlay">
   <div class="modal" id="modal-content"></div>
 </div>
-
-<!-- Toast -->
 <div class="toast" id="toast"></div>
-
 <script>
-// ========== 数据层 ==========
 const STORAGE_KEY = 'creator_workbench_data';
-
 const defaultData = {
   tasks: [
     { id: 't1', title: '普拉提 1 小时', done: false, category: 'routine' },
@@ -454,19 +438,11 @@ const defaultData = {
   reviews: [],
   notes: [],
 };
-
 let data = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null') || defaultData;
 if (!data.tasks) data = JSON.parse(JSON.stringify(defaultData));
+function save() { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
+function genId() { return Date.now().toString() + Math.random().toString(36).substr(2, 5); }
 
-function save() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-}
-
-function genId() {
-  return Date.now().toString() + Math.random().toString(36).substr(2, 5);
-}
-
-// ========== 导航 ==========
 const pages = [
   { id: 'plan', icon: '✓', label: '每日计划' },
   { id: 'ideas', icon: '💡', label: '选题灵感' },
@@ -474,68 +450,44 @@ const pages = [
   { id: 'review', icon: '📊', label: '内容复盘' },
   { id: 'notes', icon: '📝', label: '备忘录' },
 ];
-
 let currentPage = 'plan';
 
 function renderBottomNav() {
-  const nav = document.getElementById('bottom-nav');
-  nav.innerHTML = pages.map(p => `
+  document.getElementById('bottom-nav').innerHTML = pages.map(p => `
     <button class="nav-item ${currentPage === p.id ? 'active' : ''}" onclick="switchPage('${p.id}')">
-      <span class="icon">${p.icon}</span>
-      <span>${p.label}</span>
-    </button>
-  `).join('');
+      <span class="icon">${p.icon}</span><span>${p.label}</span>
+    </button>`).join('');
 }
-
 function renderDrawer() {
-  const items = document.getElementById('drawer-items');
-  items.innerHTML = pages.map(p => `
+  document.getElementById('drawer-items').innerHTML = pages.map(p => `
     <div class="drawer-item ${currentPage === p.id ? 'active' : ''}" onclick="switchPage('${p.id}'); toggleDrawer()">
-      <span class="icon">${p.icon}</span>
-      <span>${p.label}</span>
-    </div>
-  `).join('') + `
+      <span class="icon">${p.icon}</span><span>${p.label}</span>
+    </div>`).join('') + `
     <div class="drawer-divider"></div>
-    <div class="drawer-item" onclick="showToast('每日健身任务已在每日计划中')">
-      <span class="icon">💪</span>
-      <span>每日健身</span>
-    </div>
-    <div class="drawer-item" onclick="showToast('英语学习任务已在每日计划中')">
-      <span class="icon">🌐</span>
-      <span>英语学习</span>
-    </div>
-  `;
+    <div class="drawer-item" onclick="showToast('每日健身任务已在每日计划中')"><span class="icon">💪</span><span>每日健身</span></div>
+    <div class="drawer-item" onclick="showToast('英语学习任务已在每日计划中')"><span class="icon">🌐</span><span>英语学习</span></div>`;
   const now = new Date();
   document.getElementById('drawer-date').textContent = `${now.getFullYear()}年${now.getMonth()+1}月${now.getDate()}日`;
 }
-
 function switchPage(pageId) {
   currentPage = pageId;
-  renderBottomNav();
-  renderDrawer();
-  renderPage();
-  // 显示/隐藏 FAB
-  const fab = document.getElementById('fab');
-  fab.style.display = ['ideas', 'review', 'notes'].includes(pageId) ? 'flex' : 'none';
+  renderBottomNav(); renderDrawer(); renderPage();
+  document.getElementById('fab').style.display = ['ideas', 'review', 'notes'].includes(pageId) ? 'flex' : 'none';
 }
-
 function toggleDrawer() {
   document.getElementById('drawer').classList.toggle('open');
   document.getElementById('drawer-overlay').classList.toggle('open');
 }
-
-// ========== 页面渲染 ==========
 function renderPage() {
-  const container = document.getElementById('page-container');
+  const c = document.getElementById('page-container');
   switch (currentPage) {
-    case 'plan': container.innerHTML = renderPlanPage(); break;
-    case 'ideas': container.innerHTML = renderIdeasPage(); break;
-    case 'trending': container.innerHTML = renderTrendingPage(); break;
-    case 'review': container.innerHTML = renderReviewPage(); break;
-    case 'notes': container.innerHTML = renderNotesPage(); break;
+    case 'plan': c.innerHTML = renderPlanPage(); break;
+    case 'ideas': c.innerHTML = renderIdeasPage(); break;
+    case 'trending': c.innerHTML = renderTrendingPage(); break;
+    case 'review': c.innerHTML = renderReviewPage(); break;
+    case 'notes': c.innerHTML = renderNotesPage(); break;
   }
 }
-
 function renderPlanPage() {
   const total = data.tasks.length;
   const done = data.tasks.filter(t => t.done).length;
@@ -543,7 +495,6 @@ function renderPlanPage() {
   const rate = total === 0 ? 0 : Math.round(done / total * 100);
   const routines = data.tasks.filter(t => t.category === 'routine');
   const creations = data.tasks.filter(t => t.category === 'creation');
-
   return `
     <div class="stat-strip">
       <div class="stat-item"><div class="value">${total}</div><div class="label">今日任务</div></div>
@@ -552,51 +503,28 @@ function renderPlanPage() {
       <div class="stat-item"><div class="value">${rate}%</div><div class="label">完成率</div></div>
     </div>
     <div class="content">
-      <div class="section-header">
-        <h2>个人日常</h2>
-        <button class="add-btn" onclick="showAddTaskModal('routine')">+ 新增</button>
-      </div>
+      <div class="section-header"><h2>个人日常</h2><button class="add-btn" onclick="showAddTaskModal('routine')">+ 新增</button></div>
       ${routines.map(t => taskCard(t)).join('')}
-      <div class="section-header">
-        <h2>创作任务</h2>
-        <button class="add-btn creation" onclick="showAddTaskModal('creation')">+ 新增</button>
-      </div>
+      <div class="section-header"><h2>创作任务</h2><button class="add-btn creation" onclick="showAddTaskModal('creation')">+ 新增</button></div>
       ${creations.map(t => taskCard(t)).join('')}
-    </div>
-  `;
+    </div>`;
 }
-
 function taskCard(t) {
-  return `
-    <div class="task-card ${t.done ? 'done' : ''}">
-      <div class="checkbox ${t.done ? 'checked' : ''}" onclick="toggleTask('${t.id}')"></div>
-      <span class="title">${t.title}</span>
-      <button class="delete" onclick="deleteTask('${t.id}')">🗑</button>
-    </div>
-  `;
+  return `<div class="task-card ${t.done ? 'done' : ''}">
+    <div class="checkbox ${t.done ? 'checked' : ''}" onclick="toggleTask('${t.id}')"></div>
+    <span class="title">${t.title}</span>
+    <button class="delete" onclick="deleteTask('${t.id}')">🗑</button></div>`;
 }
-
 function renderIdeasPage() {
-  if (data.ideas.length === 0) {
-    return emptyState('💡', '暂无灵感', '点击右下角 + 添加第一条灵感');
-  }
-  return `<div class="content">
-    ${data.ideas.map(i => `
-      <div class="idea-card">
-        <div class="idea-title">${i.title} ${i.used ? '<span style="font-size:11px;color:var(--primary);background:rgba(45,106,79,0.1);padding:2px 8px;border-radius:8px">已用</span>' : ''}</div>
-        <div class="hook">${i.hook}</div>
-        <div class="tags">
-          <span class="tag">${i.source}</span>
-          ${i.tags.map(t => `<span class="tag">${t}</span>`).join('')}
-        </div>
-        <div class="actions">
-          <button class="action-btn" onclick="useIdea('${i.id}')">✓ 转为任务</button>
-        </div>
-      </div>
-    `).join('')}
-  </div>`;
+  if (data.ideas.length === 0) return emptyState('💡', '暂无灵感', '点击右下角 + 添加第一条灵感');
+  return `<div class="content">${data.ideas.map(i => `
+    <div class="idea-card">
+      <div class="idea-title">${i.title} ${i.used ? '<span style="font-size:11px;color:#F5A623;background:rgba(255,200,60,0.15);padding:2px 8px;border-radius:8px">已用</span>' : ''}</div>
+      <div class="hook">${i.hook}</div>
+      <div class="tags"><span class="tag">${i.source}</span>${i.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+      <div class="actions"><button class="action-btn" onclick="useIdea('${i.id}')">✓ 转为任务</button></div>
+    </div>`).join('')}</div>`;
 }
-
 function renderTrendingPage() {
   const trends = [
     { title: 'AI 工作台教程', heat: '🔥 128.5w', hook: '只会空想行动力为0？AI时代来了！' },
@@ -605,246 +533,100 @@ function renderTrendingPage() {
     { title: '短视频选题库搭建', heat: '🔥 65.1w', hook: '一个方法解决选题焦虑' },
     { title: '内容复盘模板', heat: '🔥 54.3w', hook: '发完视频必做的3件事' },
   ];
-  return `<div class="content">
-    ${trends.map((t, i) => `
-      <div class="trend-card">
-        <div class="trend-rank ${i < 3 ? 'top' : 'normal'}">${i+1}</div>
-        <div class="trend-content">
-          <div class="trend-title">${t.title}</div>
-          <div class="trend-hook">${t.hook}</div>
-          <div class="trend-heat">${t.heat}</div>
-        </div>
-        <button class="action-btn" onclick="saveTrendToIdeas('${t.title}','${t.hook}')">+ 存</button>
-      </div>
-    `).join('')}
-  </div>`;
+  return `<div class="content">${trends.map((t, i) => `
+    <div class="trend-card">
+      <div class="trend-rank ${i < 3 ? 'top' : 'normal'}">${i+1}</div>
+      <div class="trend-content"><div class="trend-title">${t.title}</div><div class="trend-hook">${t.hook}</div><div class="trend-heat">${t.heat}</div></div>
+      <button class="action-btn" onclick="saveTrendToIdeas('${t.title}','${t.hook}')">+ 存</button>
+    </div>`).join('')}</div>`;
 }
-
 function renderReviewPage() {
-  if (data.reviews.length === 0) {
-    return emptyState('📊', '暂无复盘记录', '点击右下角 + 添加第一条复盘');
-  }
-  return `<div class="content">
-    ${data.reviews.map(r => {
-      const rate = (r.completionRate * 100).toFixed(1);
-      let suggestion = '数据表现良好，继续保持！';
-      if (r.completionRate < 0.3) suggestion = '完播率偏低，建议前3秒加钩子或缩短视频长度';
-      else if (r.likes / (r.views + 1) < 0.05) suggestion = '点赞率偏低，建议增加互动引导';
-      else if (r.comments / (r.views + 1) < 0.01) suggestion = '评论率偏低，建议结尾抛问题';
-      return `
-        <div class="review-card">
-          <div class="review-title">${r.title} <span style="font-size:12px;color:var(--text-secondary)">${r.date}</span></div>
-          <div class="review-metrics">
-            <div class="metric"><div class="val">${r.views}</div><div class="lbl">播放</div></div>
-            <div class="metric"><div class="val">${r.likes}</div><div class="lbl">点赞</div></div>
-            <div class="metric"><div class="val">${r.comments}</div><div class="lbl">评论</div></div>
-            <div class="metric"><div class="val">${r.shares}</div><div class="lbl">转发</div></div>
-            <div class="metric"><div class="val">${rate}%</div><div class="lbl">完播率</div></div>
-          </div>
-          <div class="review-suggestion">
-            <div class="label">AI 建议</div>
-            ${suggestion}
-          </div>
-          ${r.nextAction ? `<div style="margin-top:8px;font-size:13px;color:var(--text-secondary)">下次动作：${r.nextAction}</div>` : ''}
-        </div>
-      `;
-    }).join('')}
-  </div>`;
-}
-
-function renderNotesPage() {
-  if (data.notes.length === 0) {
-    return emptyState('📝', '暂无笔记', '点击右下角 + 添加第一条笔记');
-  }
-  return `<div class="content">
-    ${data.notes.map(n => `
-      <div class="note-card">
-        <div class="note-title">${n.title}</div>
-        <div class="note-body">${n.body}</div>
-        <div class="note-date">${n.date}</div>
+  if (data.reviews.length === 0) return emptyState('📊', '暂无复盘记录', '点击右下角 + 添加第一条复盘');
+  return `<div class="content">${data.reviews.map(r => {
+    const rate = (r.completionRate * 100).toFixed(1);
+    let suggestion = '数据表现良好，继续保持！';
+    if (r.completionRate < 0.3) suggestion = '完播率偏低，建议前3秒加钩子或缩短视频长度';
+    else if (r.likes / (r.views + 1) < 0.05) suggestion = '点赞率偏低，建议增加互动引导';
+    else if (r.comments / (r.views + 1) < 0.01) suggestion = '评论率偏低，建议结尾抛问题';
+    return `<div class="review-card">
+      <div class="review-title">${r.title} <span style="font-size:12px;color:var(--text-secondary)">${r.date}</span></div>
+      <div class="review-metrics">
+        <div class="metric"><div class="val">${r.views}</div><div class="lbl">播放</div></div>
+        <div class="metric"><div class="val">${r.likes}</div><div class="lbl">点赞</div></div>
+        <div class="metric"><div class="val">${r.comments}</div><div class="lbl">评论</div></div>
+        <div class="metric"><div class="val">${r.shares}</div><div class="lbl">转发</div></div>
+        <div class="metric"><div class="val">${rate}%</div><div class="lbl">完播率</div></div>
       </div>
-    `).join('')}
-  </div>`;
+      <div class="review-suggestion"><div class="label">AI 建议</div>${suggestion}</div>
+      ${r.nextAction ? `<div style="margin-top:8px;font-size:13px;color:var(--text-secondary)">下次动作：${r.nextAction}</div>` : ''}
+    </div>`;
+  }).join('')}</div>`;
 }
-
+function renderNotesPage() {
+  if (data.notes.length === 0) return emptyState('📝', '暂无笔记', '点击右下角 + 添加第一条笔记');
+  return `<div class="content">${data.notes.map(n => `
+    <div class="note-card"><div class="note-title">${n.title}</div><div class="note-body">${n.body}</div><div class="note-date">${n.date}</div></div>`).join('')}</div>`;
+}
 function emptyState(icon, title, hint) {
-  return `<div class="content"><div class="empty-state">
-    <div class="icon">${icon}</div>
-    <p>${title}</p>
-    <p class="hint">${hint}</p>
-  </div></div>`;
+  return `<div class="content"><div class="empty-state"><div class="icon">${icon}</div><p>${title}</p><p class="hint">${hint}</p></div></div>`;
 }
-
-// ========== 操作函数 ==========
-function toggleTask(id) {
-  const t = data.tasks.find(x => x.id === id);
-  if (t) { t.done = !t.done; save(); renderPage(); }
-}
-
-function deleteTask(id) {
-  data.tasks = data.tasks.filter(t => t.id !== id);
-  save(); renderPage();
-}
-
+function toggleTask(id) { const t = data.tasks.find(x => x.id === id); if (t) { t.done = !t.done; save(); renderPage(); } }
+function deleteTask(id) { data.tasks = data.tasks.filter(t => t.id !== id); save(); renderPage(); }
 function showAddTaskModal(category) {
-  showModal(`
-    <h3>${category === 'routine' ? '新增个人日常' : '新增创作任务'}</h3>
+  showModal(`<h3>${category === 'routine' ? '新增个人日常' : '新增创作任务'}</h3>
     <input type="text" id="task-input" placeholder="输入任务名称" autofocus>
     <div class="modal-actions">
       <button class="modal-btn cancel" onclick="closeModal()">取消</button>
       <button class="modal-btn confirm ${category === 'creation' ? 'accent' : ''}" onclick="addTask('${category}')">添加</button>
-    </div>
-  `);
+    </div>`);
 }
-
 function addTask(category) {
   const input = document.getElementById('task-input');
-  if (input.value.trim()) {
-    data.tasks.push({ id: genId(), title: input.value.trim(), done: false, category });
-    save(); closeModal(); renderPage();
-  }
+  if (input.value.trim()) { data.tasks.push({ id: genId(), title: input.value.trim(), done: false, category }); save(); closeModal(); renderPage(); }
 }
-
-function useIdea(id) {
-  const idea = data.ideas.find(i => i.id === id);
-  if (idea) {
-    idea.used = true;
-    data.tasks.push({ id: genId(), title: idea.title, done: false, category: 'creation' });
-    save(); renderPage();
-    showToast('已转为创作任务');
-  }
-}
-
-function saveTrendToIdeas(title, hook) {
-  data.ideas.push({ id: genId(), title, hook, source: '抖音', tags: ['爆款'] });
-  save();
-  showToast('已存入灵感库');
-}
-
-function onFabClick() {
-  switch (currentPage) {
-    case 'ideas': showAddIdeaModal(); break;
-    case 'review': showAddReviewModal(); break;
-    case 'notes': showAddNoteModal(); break;
-  }
-}
-
+function useIdea(id) { const idea = data.ideas.find(i => i.id === id); if (idea) { idea.used = true; data.tasks.push({ id: genId(), title: idea.title, done: false, category: 'creation' }); save(); renderPage(); showToast('已转为创作任务'); } }
+function saveTrendToIdeas(title, hook) { data.ideas.push({ id: genId(), title, hook, source: '抖音', tags: ['爆款'] }); save(); showToast('已存入灵感库'); }
+function onFabClick() { switch (currentPage) { case 'ideas': showAddIdeaModal(); break; case 'review': showAddReviewModal(); break; case 'notes': showAddNoteModal(); break; } }
 function showAddIdeaModal() {
-  showModal(`
-    <h3>新增灵感</h3>
+  showModal(`<h3>新增灵感</h3>
     <input type="text" id="idea-title" placeholder="标题">
     <input type="text" id="idea-hook" placeholder="钩子（前3秒）">
     <input type="text" id="idea-tags" placeholder="标签（逗号分隔）">
-    <select id="idea-source">
-      <option value="原创">原创</option>
-      <option value="抖音">抖音</option>
-      <option value="小红书">小红书</option>
-      <option value="B站">B站</option>
-    </select>
-    <div class="modal-actions">
-      <button class="modal-btn cancel" onclick="closeModal()">取消</button>
-      <button class="modal-btn confirm" onclick="addIdea()">添加</button>
-    </div>
-  `);
+    <select id="idea-source"><option value="原创">原创</option><option value="抖音">抖音</option><option value="小红书">小红书</option><option value="B站">B站</option></select>
+    <div class="modal-actions"><button class="modal-btn cancel" onclick="closeModal()">取消</button><button class="modal-btn confirm" onclick="addIdea()">添加</button></div>`);
 }
-
 function addIdea() {
   const title = document.getElementById('idea-title').value.trim();
-  if (title) {
-    data.ideas.push({
-      id: genId(),
-      title,
-      hook: document.getElementById('idea-hook').value.trim(),
-      source: document.getElementById('idea-source').value,
-      tags: document.getElementById('idea-tags').value.split(',').map(s => s.trim()).filter(s => s),
-    });
-    save(); closeModal(); renderPage();
-  }
+  if (title) { data.ideas.push({ id: genId(), title, hook: document.getElementById('idea-hook').value.trim(), source: document.getElementById('idea-source').value, tags: document.getElementById('idea-tags').value.split(',').map(s => s.trim()).filter(s => s) }); save(); closeModal(); renderPage(); }
 }
-
 function showAddReviewModal() {
-  showModal(`
-    <h3>新增复盘</h3>
+  showModal(`<h3>新增复盘</h3>
     <input type="text" id="r-title" placeholder="标题">
-    <div style="display:flex;gap:8px">
-      <input type="number" id="r-views" placeholder="播放" value="0">
-      <input type="number" id="r-likes" placeholder="点赞" value="0">
-    </div>
-    <div style="display:flex;gap:8px">
-      <input type="number" id="r-comments" placeholder="评论" value="0">
-      <input type="number" id="r-shares" placeholder="转发" value="0">
-    </div>
+    <div style="display:flex;gap:8px"><input type="number" id="r-views" placeholder="播放" value="0"><input type="number" id="r-likes" placeholder="点赞" value="0"></div>
+    <div style="display:flex;gap:8px"><input type="number" id="r-comments" placeholder="评论" value="0"><input type="number" id="r-shares" placeholder="转发" value="0"></div>
     <input type="number" id="r-rate" placeholder="完播率 (%)" value="0">
     <input type="text" id="r-next" placeholder="下次动作">
-    <div class="modal-actions">
-      <button class="modal-btn cancel" onclick="closeModal()">取消</button>
-      <button class="modal-btn confirm" onclick="addReview()">添加</button>
-    </div>
-  `);
+    <div class="modal-actions"><button class="modal-btn cancel" onclick="closeModal()">取消</button><button class="modal-btn confirm" onclick="addReview()">添加</button></div>`);
 }
-
 function addReview() {
   const title = document.getElementById('r-title').value.trim() || '未命名复盘';
-  data.reviews.unshift({
-    id: genId(),
-    title,
-    views: parseInt(document.getElementById('r-views').value) || 0,
-    likes: parseInt(document.getElementById('r-likes').value) || 0,
-    comments: parseInt(document.getElementById('r-comments').value) || 0,
-    shares: parseInt(document.getElementById('r-shares').value) || 0,
-    completionRate: (parseFloat(document.getElementById('r-rate').value) || 0) / 100,
-    nextAction: document.getElementById('r-next').value.trim(),
-    date: new Date().toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' }),
-  });
+  data.reviews.unshift({ id: genId(), title, views: parseInt(document.getElementById('r-views').value) || 0, likes: parseInt(document.getElementById('r-likes').value) || 0, comments: parseInt(document.getElementById('r-comments').value) || 0, shares: parseInt(document.getElementById('r-shares').value) || 0, completionRate: (parseFloat(document.getElementById('r-rate').value) || 0) / 100, nextAction: document.getElementById('r-next').value.trim(), date: new Date().toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' }) });
   save(); closeModal(); renderPage();
 }
-
 function showAddNoteModal() {
-  showModal(`
-    <h3>新增笔记</h3>
+  showModal(`<h3>新增笔记</h3>
     <input type="text" id="n-title" placeholder="标题">
     <textarea id="n-body" placeholder="内容"></textarea>
-    <div class="modal-actions">
-      <button class="modal-btn cancel" onclick="closeModal()">取消</button>
-      <button class="modal-btn confirm" onclick="addNote()">添加</button>
-    </div>
-  `);
+    <div class="modal-actions"><button class="modal-btn cancel" onclick="closeModal()">取消</button><button class="modal-btn confirm" onclick="addNote()">添加</button></div>`);
 }
-
 function addNote() {
   const title = document.getElementById('n-title').value.trim();
-  if (title) {
-    data.notes.unshift({
-      id: genId(),
-      title,
-      body: document.getElementById('n-body').value.trim(),
-      date: new Date().toLocaleString('zh-CN', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' }),
-    });
-    save(); closeModal(); renderPage();
-  }
+  if (title) { data.notes.unshift({ id: genId(), title, body: document.getElementById('n-body').value.trim(), date: new Date().toLocaleString('zh-CN', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' }) }); save(); closeModal(); renderPage(); }
 }
-
-// ========== UI 工具 ==========
-function showModal(html) {
-  document.getElementById('modal-content').innerHTML = html;
-  document.getElementById('modal-overlay').classList.add('open');
-}
-
-function closeModal() {
-  document.getElementById('modal-overlay').classList.remove('open');
-}
-
-function showToast(msg) {
-  const toast = document.getElementById('toast');
-  toast.textContent = msg;
-  toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 2000);
-}
-
-// ========== 初始化 ==========
-renderBottomNav();
-renderDrawer();
-renderPage();
+function showModal(html) { document.getElementById('modal-content').innerHTML = html; document.getElementById('modal-overlay').classList.add('open'); }
+function closeModal() { document.getElementById('modal-overlay').classList.remove('open'); }
+function showToast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2000); }
+renderBottomNav(); renderDrawer(); renderPage();
 document.getElementById('fab').style.display = 'none';
 </script>
 </body>
