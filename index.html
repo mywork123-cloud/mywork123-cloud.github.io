@@ -277,7 +277,10 @@ function renderNav() {
 function renderDrawer() {
   document.getElementById('drawer-items').innerHTML = pages.map(p =>
     `<div class="drawer-item ${cur===p.id?'active':''}" onclick="go('${p.id}');toggleDrawer()"><span class="icon">${p.icon}</span><span>${p.label}</span></div>`
-  ).join('');
+  ).join('') + `
+    <div class="drawer-divider"></div>
+    <div class="drawer-item" onclick="showToast('每日健身任务已在每日计划中')"><span class="icon">💪</span><span>每日健身</span></div>
+    <div class="drawer-item" onclick="showToast('英语学习任务已在每日计划中')"><span class="icon">🌐</span><span>英语学习</span></div>`;
   const n = new Date();
   document.getElementById('drawer-date').textContent = `${n.getFullYear()}年${n.getMonth()+1}月${n.getDate()}日`;
 }
