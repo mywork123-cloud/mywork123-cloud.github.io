@@ -339,6 +339,7 @@ function renderIdeasPage() {
       <div class="info">📅 今日推荐 · <b>${today}</b><br>每日21:00更新爆款选题</div>
       <button class="refresh-btn" onclick="refIdeas()">🔄 换一批</button>
     </div>
+    <div class="section-header"><h2>选题任务</h2><button class="add-btn" onclick="addIdeaTask()">+ 新增选题</button></div>
     ${D.ideas.length === 0 ? '<p style="text-align:center;color:var(--text-secondary);padding:20px 0">点击"换一批"获取今日选题灵感</p>' : D.ideas.map(i => ideaTaskCard(i)).join('')}
   </div>`;
 }
@@ -352,6 +353,18 @@ function ideaTaskCard(i) {
     </div>
     <button class="delete" onclick="delIdea('${i.id}')">🗑</button>
   </div>`;
+}
+function addIdeaTask() {
+  showModal(`<h3>新增选题任务</h3>
+    <input type="text" id="ii" placeholder="输入选题名称" autofocus>
+    <div class="modal-actions">
+      <button class="modal-btn cancel" onclick="closeM()">取消</button>
+      <button class="modal-btn confirm" onclick="doAddIdea()">添加</button>
+    </div>`);
+}
+function doAddIdea() {
+  const v = document.getElementById('ii').value.trim();
+  if(v) { D.ideas.push({ id: gid(), t: v, p: 'douyin', l: '', h: '', a: '', c: '', g: [], done: false }); save(); closeM(); renderPage(); }
 }
 function toggleIdea(id) {
   const i = D.ideas.find(x => x.id === id);
@@ -384,6 +397,7 @@ function renderTrendingPage() {
       <div class="info">🔥 今日热点 · <b>${today}</b><br>每日9:00更新二创素材</div>
       <button class="refresh-btn" onclick="refTrends()">🔄 换一批</button>
     </div>
+    <div class="section-header"><h2>热点任务</h2><button class="add-btn" onclick="addTrendTask()">+ 新增热点</button></div>
     ${D.trends.length === 0 ? '<p style="text-align:center;color:var(--text-secondary);padding:20px 0">点击"换一批"获取今日爆款热点</p>' : D.trends.map(t => trendTaskCard(t)).join('')}
   </div>`;
 }
@@ -396,6 +410,18 @@ function trendTaskCard(t) {
     </div>
     <button class="delete" onclick="delTrend('${t.id}')">🗑</button>
   </div>`;
+}
+function addTrendTask() {
+  showModal(`<h3>新增热点任务</h3>
+    <input type="text" id="ti2" placeholder="输入热点名称" autofocus>
+    <div class="modal-actions">
+      <button class="modal-btn cancel" onclick="closeM()">取消</button>
+      <button class="modal-btn confirm" onclick="doAddTrend()">添加</button>
+    </div>`);
+}
+function doAddTrend() {
+  const v = document.getElementById('ti2').value.trim();
+  if(v) { D.trends.push({ id: gid(), t: v, ht: '', h: '', r: '', l: '', done: false }); save(); closeM(); renderPage(); }
 }
 function toggleTrend(id) {
   const t = D.trends.find(x => x.id === id);
