@@ -310,7 +310,6 @@ function renderPlanPage() {
   <div class="content">
     <div class="section-header"><h2>个人日常</h2><button class="add-btn" onclick="addTask('routine')">+ 新增</button></div>
     ${routines.map(t=>taskRow(t)).join('')}
-    <div style="height:1px;background:var(--divider);margin:16px 0"></div>
     <div class="section-header"><h2>创作任务</h2><button class="add-btn creation" onclick="addTask('creation')">+ 新增</button></div>
     ${creations.map(t=>taskRow(t)).join('')}
   </div>`;
