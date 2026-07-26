@@ -327,7 +327,7 @@ function renderIdeasPage() {
   const today = new Date().toLocaleDateString('zh-CN');
   return `<div class="content">
     <div class="refresh-bar">
-      <div class="info">📅 今日推荐 · <b>${today}</b><br>每日21:00更新爆款选题</div>
+      <div class="info">📅 今日推荐 · <b>${today}</b><br>每日9:00更新爆款选题</div>
       <button class="refresh-btn" onclick="refIdeas()">🔄 换一批</button>
     </div>
     ${D.ideas.length===0?'<p style="text-align:center;color:var(--text-secondary);padding:20px 0">点击"换一批"获取今日选题灵感</p>':D.ideas.map(i=>ideaCard(i)).join('')}
@@ -361,7 +361,7 @@ function renderTrendingPage() {
   const today = new Date().toLocaleDateString('zh-CN');
   return `<div class="content">
     <div class="refresh-bar">
-      <div class="info">🔥 今日热点 · <b>${today}</b><br>每日9:00更新二创素材</div>
+      <div class="info">🔥 今日热点 · <b>${today}</b><br>每日21:00更新二创素材</div>
       <button class="refresh-btn" onclick="refTrends()">🔄 换一批</button>
     </div>
     ${D.trends.length===0?'<p style="text-align:center;color:var(--text-secondary);padding:20px 0">点击"换一批"获取今日爆款热点</p>':D.trends.map(t=>trendCard(t)).join('')}
