@@ -172,16 +172,16 @@ html, body {
 <div class="toast" id="toast"></div>
 
 <script>
-const KEY = 'workbench_v5';
+const KEY = 'workbench_v6';
 const def = {
   tasks: [
-    { id: 't1', title: '每日健身 1 小时', done: false },
-    { id: 't2', title: '英语学习 1 小时', done: false },
-    { id: 't3', title: '看书', done: false },
-    { id: 't4', title: '写复盘', done: false },
-    { id: 't5', title: '9 点收灵感', done: false },
-    { id: 't6', title: '刷对标账号', done: false },
-    { id: 't7', title: '发完即复盘', done: false },
+    { id: 't1', title: '每日健身 1 小时', done: false, cat: 'routine' },
+    { id: 't2', title: '英语学习 1 小时', done: false, cat: 'routine' },
+    { id: 't3', title: '看书', done: false, cat: 'routine' },
+    { id: 't4', title: '写复盘', done: false, cat: 'routine' },
+    { id: 't5', title: '9 点收灵感', done: false, cat: 'creation' },
+    { id: 't6', title: '刷对标账号', done: false, cat: 'creation' },
+    { id: 't7', title: '发完即复盘', done: false, cat: 'creation' },
   ],
   ideas: [],
   trends: [],
@@ -299,6 +299,8 @@ function toggleDrawer() {
 /* ==== 1. 每日计划 ==== */
 function renderPlanPage() {
   const total = D.tasks.length, done = D.tasks.filter(t=>t.done).length, pending = total - done, rate = total===0?0:Math.round(done/total*100);
+  const routines = D.tasks.filter(t=>t.cat==='routine');
+  const creations = D.tasks.filter(t=>t.cat==='creation');
   return `<div class="stat-strip">
     <div class="stat-item"><div class="value">${total}</div><div class="label">今日任务</div></div>
     <div class="stat-item"><div class="value">${done}</div><div class="label">已完成</div></div>
@@ -306,28 +308,33 @@ function renderPlanPage() {
     <div class="stat-item"><div class="value">${rate}%</div><div class="label">完成率</div></div>
   </div>
   <div class="content">
-    <div class="section-header"><h2>今日待办</h2><button class="add-btn" onclick="addTask()">+ 新增任务</button></div>
-    ${D.tasks.length===0?'<p style="text-align:center;color:var(--text-secondary);padding:40px 0">暂无任务，点击右上角新增</p>':D.tasks.map(t=>`
-      <div class="task-card ${t.done?'done':''}">
-        <div class="checkbox ${t.done?'checked':''}" onclick="toggleT('${t.id}')"></div>
-        <span class="title">${t.title}</span>
-        <button class="delete" onclick="delT('${t.id}')">🗑</button>
-      </div>`).join('')}
+    <div class="section-header"><h2>个人日常</h2><button class="add-btn" onclick="addTask('routine')">+ 新增</button></div>
+    ${routines.map(t=>taskRow(t)).join('')}
+    <div style="height:1px;background:var(--divider);margin:16px 0"></div>
+    <div class="section-header"><h2>创作任务</h2><button class="add-btn creation" onclick="addTask('creation')">+ 新增</button></div>
+    ${creations.map(t=>taskRow(t)).join('')}
+  </div>`;
+}
+function taskRow(t) {
+  return `<div class="task-card ${t.done?'done':''}">
+    <div class="checkbox ${t.done?'checked':''}" onclick="toggleT('${t.id}')"></div>
+    <span class="title">${t.title}</span>
+    <button class="delete" onclick="delT('${t.id}')">🗑</button>
   </div>`;
 }
 function toggleT(id) { const t = D.tasks.find(x=>x.id===id); if(t){t.done=!t.done;save();renderPage();} }
 function delT(id) { D.tasks = D.tasks.filter(x=>x.id!==id); save(); renderPage(); }
-function addTask() {
-  showModal(`<h3>新增任务</h3>
+function addTask(cat) {
+  showModal(`<h3>${cat==='routine'?'新增个人日常':'新增创作任务'}</h3>
     <input type="text" id="ti" placeholder="输入任务名称" autofocus>
     <div class="modal-actions">
       <button class="modal-btn cancel" onclick="closeM()">取消</button>
-      <button class="modal-btn confirm" onclick="doAddTask()">添加</button>
+      <button class="modal-btn confirm ${cat==='creation'?'accent':''}" onclick="doAddTask('${cat}')">添加</button>
     </div>`);
 }
-function doAddTask() {
+function doAddTask(cat) {
   const v = document.getElementById('ti').value.trim();
-  if(v) { D.tasks.push({ id: gid(), title: v, done: false }); save(); closeM(); renderPage(); }
+  if(v) { D.tasks.push({ id: gid(), title: v, done: false, cat }); save(); closeM(); renderPage(); }
 }
 
 /* ==== 2. 选题每日灵感 ==== */
