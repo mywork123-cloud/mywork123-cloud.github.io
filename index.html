@@ -325,66 +325,90 @@ function doAddTask() {
 /* ==== 2. 选题每日灵感 ==== */
 function renderIdeasPage() {
   const today = new Date().toLocaleDateString('zh-CN');
-  return `<div class="content">
+  const total = D.ideas.length;
+  const done = D.ideas.filter(i => i.done).length;
+  const rate = total === 0 ? 0 : Math.round(done / total * 100);
+  return `<div class="stat-strip">
+    <div class="stat-item"><div class="value">${total}</div><div class="label">今日选题</div></div>
+    <div class="stat-item"><div class="value">${done}</div><div class="label">已完成</div></div>
+    <div class="stat-item"><div class="value">${total - done}</div><div class="label">待完成</div></div>
+    <div class="stat-item"><div class="value">${rate}%</div><div class="label">完成率</div></div>
+  </div>
+  <div class="content">
     <div class="refresh-bar">
-      <div class="info">📅 今日推荐 · <b>${today}</b><br>每日9:00更新爆款选题</div>
+      <div class="info">📅 今日推荐 · <b>${today}</b><br>每日21:00更新爆款选题</div>
       <button class="refresh-btn" onclick="refIdeas()">🔄 换一批</button>
     </div>
-    ${D.ideas.length===0?'<p style="text-align:center;color:var(--text-secondary);padding:20px 0">点击"换一批"获取今日选题灵感</p>':D.ideas.map(i=>ideaCard(i)).join('')}
+    ${D.ideas.length === 0 ? '<p style="text-align:center;color:var(--text-secondary);padding:20px 0">点击"换一批"获取今日选题灵感</p>' : D.ideas.map(i => ideaTaskCard(i)).join('')}
   </div>`;
 }
-function ideaCard(i) {
-  const pn = i.p==='douyin'?'抖音':i.p==='bilibili'?'B站':'小红书';
-  return `<div class="card">
-    <div class="card-title">${i.t} <span class="platform-tag ${i.p}">${pn}</span></div>
-    <div class="hook">🎬 ${i.h}</div>
-    <div class="analysis-box"><span class="l">🔥 火爆分析：</span>${i.a}</div>
-    <div class="creative-box"><span class="l">✍️ 原创思路：</span>${i.c}</div>
-    <div class="tags">${i.g.map(g=>`<span class="tag">${g}</span>`).join('')}</div>
-    <div class="actions">
-      <button class="btn link" onclick="window.open('${i.l}','_blank')">▶ 看原视频</button>
-      <button class="btn ${i.u?'used':''}" onclick="useI('${i.id}')">${i.u?'✓ 已转任务':'+ 转任务'}</button>
-    </div></div>`;
+function ideaTaskCard(i) {
+  const pn = i.p === 'douyin' ? '抖音' : i.p === 'bilibili' ? 'B站' : '小红书';
+  return `<div class="task-card ${i.done ? 'done' : ''}">
+    <div class="checkbox ${i.done ? 'checked' : ''}" onclick="toggleIdea('${i.id}')"></div>
+    <div style="flex:1">
+      <div style="font-size:15px;font-weight:600;margin-bottom:4px">${i.t} <span class="platform-tag ${i.p}" style="font-size:10px;padding:1px 6px">${pn}</span></div>
+      <div style="font-size:12px;color:var(--text-secondary)">${i.h}</div>
+    </div>
+    <button class="delete" onclick="delIdea('${i.id}')">🗑</button>
+  </div>`;
+}
+function toggleIdea(id) {
+  const i = D.ideas.find(x => x.id === id);
+  if (i) { i.done = !i.done; save(); renderPage(); }
+}
+function delIdea(id) {
+  D.ideas = D.ideas.filter(x => x.id !== id);
+  save(); renderPage();
 }
 function refIdeas() {
-  const s = [...IP].sort(()=>Math.random()-0.5).slice(0,4);
-  D.ideas = s.map(x=>({ ...x, id: gid(), u: false }));
+  const s = [...IP].sort(() => Math.random() - 0.5).slice(0, 4);
+  D.ideas = s.map(x => ({ ...x, id: gid(), done: false }));
   save(); renderPage(); toast('已更新今日选题灵感');
-}
-function useI(id) {
-  const i = D.ideas.find(x=>x.id===id);
-  if(i && !i.u) { i.u = true; D.tasks.push({ id: gid(), title: '创��：'+i.t, done: false }); save(); renderPage(); toast('已转为今日任务'); }
 }
 
 /* ==== 3. 爆款热点视频/二创 ==== */
 function renderTrendingPage() {
   const today = new Date().toLocaleDateString('zh-CN');
-  return `<div class="content">
+  const total = D.trends.length;
+  const done = D.trends.filter(t => t.done).length;
+  const rate = total === 0 ? 0 : Math.round(done / total * 100);
+  return `<div class="stat-strip">
+    <div class="stat-item"><div class="value">${total}</div><div class="label">今日热点</div></div>
+    <div class="stat-item"><div class="value">${done}</div><div class="label">已完成</div></div>
+    <div class="stat-item"><div class="value">${total - done}</div><div class="label">待完成</div></div>
+    <div class="stat-item"><div class="value">${rate}%</div><div class="label">完成率</div></div>
+  </div>
+  <div class="content">
     <div class="refresh-bar">
-      <div class="info">🔥 今日热点 · <b>${today}</b><br>每日21:00更新二创素材</div>
+      <div class="info">🔥 今日热点 · <b>${today}</b><br>每日9:00更新二创素材</div>
       <button class="refresh-btn" onclick="refTrends()">🔄 换一批</button>
     </div>
-    ${D.trends.length===0?'<p style="text-align:center;color:var(--text-secondary);padding:20px 0">点击"换一批"获取今日爆款热点</p>':D.trends.map(t=>trendCard(t)).join('')}
+    ${D.trends.length === 0 ? '<p style="text-align:center;color:var(--text-secondary);padding:20px 0">点击"换一批"获取今日爆款热点</p>' : D.trends.map(t => trendTaskCard(t)).join('')}
   </div>`;
 }
-function trendCard(t) {
-  return `<div class="card">
-    <div class="trend-header"><div class="trend-title">${t.t}</div><div class="heat">${t.ht}</div></div>
-    <div class="hook">🎬 ${t.h}</div>
-    <div class="remake-box"><span class="l">✍️ 二创改编方案：</span>${t.r}</div>
-    <div class="actions">
-      <button class="btn link" onclick="window.open('${t.l}','_blank')">▶ 看原视频</button>
-      <button class="btn" onclick="saveT2I('${t.id}')">+ 存灵感</button>
-    </div></div>`;
+function trendTaskCard(t) {
+  return `<div class="task-card ${t.done ? 'done' : ''}">
+    <div class="checkbox ${t.done ? 'checked' : ''}" onclick="toggleTrend('${t.id}')"></div>
+    <div style="flex:1">
+      <div style="font-size:15px;font-weight:600;margin-bottom:4px">${t.t}</div>
+      <div style="font-size:12px;color:var(--text-secondary)">${t.h}</div>
+    </div>
+    <button class="delete" onclick="delTrend('${t.id}')">🗑</button>
+  </div>`;
+}
+function toggleTrend(id) {
+  const t = D.trends.find(x => x.id === id);
+  if (t) { t.done = !t.done; save(); renderPage(); }
+}
+function delTrend(id) {
+  D.trends = D.trends.filter(x => x.id !== id);
+  save(); renderPage();
 }
 function refTrends() {
-  const s = [...TP].sort(()=>Math.random()-0.5).slice(0,4);
-  D.trends = s.map(x=>({ ...x, id: gid() }));
+  const s = [...TP].sort(() => Math.random() - 0.5).slice(0, 4);
+  D.trends = s.map(x => ({ ...x, id: gid(), done: false }));
   save(); renderPage(); toast('已更新今日爆款热点');
-}
-function saveT2I(id) {
-  const t = D.trends.find(x=>x.id===id);
-  if(t) { D.ideas.push({ id: gid(), t: t.t, p: 'douyin', l: t.l, h: t.h, a: '来自爆款热点', c: t.r, g: ['爆款','二创'], u: false }); save(); toast('已存入灵感库'); }
 }
 
 /* ==== 4. 内容复盘 ==== */
